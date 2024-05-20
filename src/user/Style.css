@@ -1,0 +1,53 @@
+.main{
+    background-image: url('img2.jpg');
+    height: 50rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    align-items: center;
+
+}
+.first{
+    background-image: url('img3.jpg');
+    height: 50rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    align-items: center;
+
+}
+.bg{
+    background-image: url('bg.jpg');
+    height: 50rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    align-items: center;
+
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 15rem; 
+    width: 24rem;  
+    justify-content: center;
+    margin: auto;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .input-field {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: 16rem;
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
