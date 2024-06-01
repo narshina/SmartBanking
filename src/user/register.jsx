@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export const Register = () => {
-  const [data, setData] = useState(''); // Initialize data as an object
+  const [data, setData] = useState(''); 
 
   const handleChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
@@ -14,9 +14,9 @@ export const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/user/register', data);
+      const response = await axios.post('http://localhost:4000/user/register', {...data,usertype:'user'});
       console.log(response);
-      setData(data); // Reset form data after submission
+      setData(data); 
     } catch (error) {
       console.error('There was an error submitting the form!', error);
     }

@@ -12,6 +12,7 @@ import { Userhome } from './user/Userhome';
 import { Transaction } from './user/Transaction';
 import { AdminHome } from './Admin/Home';
 import { Usermange } from './Admin/Usermange';
+import { Firsttrans } from './user/Firsttrans';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,7 @@ root.render(
       <Route path='/user' element={<Navbar/>}>
         <Route index element={<Userhome/>}/>
         <Route path='trans' element={<Transaction/>}/>
+        <Route path='firsttrans' element={<Firsttrans/>}/>
         </Route>
     </Routes>
     <Routes>

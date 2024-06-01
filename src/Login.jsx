@@ -1,14 +1,32 @@
 import React, { useState } from 'react'
 import './Home.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Login = () => {
+    const navigate=useNavigate()
     const[data,setData]=useState('')
     let handlechange=(event)=>{
         setData({...data,[event.target.name]:event.target.value})
     }
-    let handlesubmit=(event)=>{
+    let handlesubmit=async(event)=>{
         event.preventDefault('')
+
+        let response=await axios.post('http://localhost:4000/user/login',data)
+        console.log(response);
+        if(response.data){
+            localStorage.setItem('id',response.data._id)
+            localStorage.setItem('email',response.data.email)
+           if(response.data.usertype=='admin'){
+            navigate('/admin')
+           }
+           if(response.data.usertype=='user'){
+            navigate('/user')
+           }
+            
+        }
+
+
         setData(data)
         console.log(data);
     }
@@ -29,7 +47,7 @@ export const Login = () => {
               <form onSubmit={handlesubmit} class="space-y-4 md:space-y-6" action="#">
                   <div>
                       <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">USERNAME</label>
-                      <input onChange={handlechange} type="text" name="username"  class="bg-gray-50 border border-gray-300  sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></input>
+                      <input onChange={handlechange} type="email" name="email"  class="bg-gray-50 border border-gray-300  sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></input>
                   </div>
                   <div>
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PASSWORD</label>

@@ -8,6 +8,7 @@ export const Navbar = () => {
         <div>ONLINE BANKING</div>
         <div className='flex flex-wrap gap-6'>
       <Link to='/user' > <div>HOME</div></Link>
+     <Link to='/user/firsttrans' ><div>FIRST DEPOSIT</div></Link>
       <Link to='/user/trans'><div>TRANSACTION</div></Link>  
         <div>PROFILE</div>
         </div>
