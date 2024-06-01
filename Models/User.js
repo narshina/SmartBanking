@@ -40,6 +40,15 @@ let userschema=new mongoose.Schema(
         },
         acno:{
             type:String
+        },
+        usertype:{
+            type:String,
+            required:true
+            
+        },
+        status:{
+            type:String,
+            default:"pending"
         }
         
 
