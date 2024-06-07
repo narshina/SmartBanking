@@ -39,7 +39,8 @@ let userschema=new mongoose.Schema(
             required:true
         },
         acno:{
-            type:String
+            type:String,
+            default:'000000'
         },
         usertype:{
             type:String,
@@ -49,6 +50,10 @@ let userschema=new mongoose.Schema(
         status:{
             type:String,
             default:"pending"
+        },
+        amount:{
+            type:Number,
+            default:0
         }
         
 

@@ -1,15 +1,24 @@
 import mongoose from 'mongoose';
+import user from './User.js';
 
 const transSchema = new mongoose.Schema({
   amount: {
     type: Number,
-    default: 0,
+    default:0
+   
   },
   userId: {
-    type: String,
-    required: true,
+    type: mongoose.Types.ObjectId,
+    ref:user,
   },
-  type:{
+  trans:{
+    type:Number
+  },
+  date:{
+    type:Date,
+    default:Date.now
+  },
+  types:{
     type:String
   }
 });

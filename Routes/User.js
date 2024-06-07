@@ -43,7 +43,7 @@ router.get('/vuser',async(req,res)=>{
 router.get('/vuserdetail/:id',async(req,res)=>{
     let id=req.params.id
     console.log(id)
-    let response=await user.findById()
+    let response=await user.findById(id)
     console.log(response)
     res.json(response)
 })
@@ -54,6 +54,29 @@ router.put('/addacno/:id',async(req,res)=>{
    console.log(req.body);
    let response=await user.findByIdAndUpdate(id,req.body)
    res.json(response)
+})
+router.put('/manageuser/:id', async (req, res) => {
+    let id = req.params.id;
+    console.log(id);
+    console.log(req.body);
+
+    try {
+        let response = await user.findByIdAndUpdate(id, req.body, { new: true });
+        res.json(response);
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).send('Server Error');
+    }
+});
+
+router.put('/editbalance/:id',async(req,res)=>{
+    console.log('ttttttttt');
+    let id=req.params.id
+    console.log(id);
+    console.log(req.body);
+    let response=await user.findByIdAndUpdate(id,req.body)
+    res.json(response)
+    
 })
 
 router.post('/firstdep',async(req,res)=>{
@@ -69,35 +92,57 @@ router.post('/firstdep',async(req,res)=>{
         res.json(e.message)
     }
 })
-
-router.put('/user/transaction/:id', async (req, res) => {
-    const { id } = req.params;
-    const { amount, type } = req.body;
-
-    if (!amount || !type) {
-        return res.status(400).send('Amount and type are required.');
+router.post('/deposit',async(req,res)=>{
+    try{
+        console.log(req.body)
+        let newTrans=new transaction(req.body)
+        console.log(newTrans,'new Trans');
+        let response=await newTrans.save()
+        res.json(response)
+        console.log(response)
     }
+    catch(e){
+        res.json(e.message)
+    }
+})
+
+
+
+router.post('/user/transaction/:id', async (req, res) => {
+    const { id } = req.params;
+    const { trans, type } = req.body;
 
     try {
-        const transaction = await Transaction.find({ userId: id });
+        const transaction = await Transaction.findById(id);
 
         if (!transaction) {
             return res.status(404).send('Transaction record not found.');
         }
 
         if (type === 'deposit') {
-            transaction.amount += parseFloat(amount);
+            transaction.amount += trans;
         } else if (type === 'withdraw') {
-            transaction.amount -= parseFloat(amount);
+            transaction.amount -= trans;
         } else {
             return res.status(400).send('Invalid transaction type.');
         }
 
         await transaction.save();
-        res.status(200).send(transaction);
+        res.status(200).json(transaction);
     } catch (error) {
         res.status(500).send('Internal Server Error');
     }
 });
+
+
+router.get('/vbalance/:id',async(req,res)=>{
+    let id=req.params.id
+    console.log(id);
+    let response=await transaction.find({userId:id})
+    console.log(response);
+    res.json(response)
+})
+
+
 
 export default router;
