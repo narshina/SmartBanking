@@ -22,6 +22,16 @@ export const Usermange = () => {
   console.log("error",error);
  }
  }
+ let handleSubmitt=async (statuss)=>{
+  try{
+    const response=await axios.put(`http://localhost:4000/user/manageuser/${id}`,{status:statuss})
+    console.log(response);
+    setData('')
+  }
+  catch(e){
+    console.log(e);
+  }
+ }
  
 
 
@@ -37,7 +47,7 @@ export const Usermange = () => {
           <div className='ml-4'>Account Number</div>
           <input onChange={handleChange}  name='acno' type='text' className='ml-4 bg-gray-50 border border-gray-300 w-96 h-8'></input>
           <div className='flex justify-center mt-4'>
-            <button type='submit' className='w-80 h-8 bg-neutral-700 text-white'>SUBMIT</button>
+            <button  onClick={()=>{handleSubmitt('enable')}} type='submit' className='w-80 h-8 bg-neutral-700 text-white'>SUBMIT</button>
           </div>
          </form>
         </div>

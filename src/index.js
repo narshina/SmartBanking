@@ -13,29 +13,27 @@ import { Transaction } from './user/Transaction';
 import { AdminHome } from './Admin/Home';
 import { Usermange } from './Admin/Usermange';
 import { Firsttrans } from './user/Firsttrans';
+import { History } from './user/History';
+import { Profile } from './user/Profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Home/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/login' element={<Login/>}/>
-       
-     
-    </Routes>
-    <Routes>
-      <Route path='/user' element={<Navbar/>}>
-        <Route index element={<Userhome/>}/>
-        <Route path='trans' element={<Transaction/>}/>
-        <Route path='firsttrans' element={<Firsttrans/>}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/user' element={<Navbar />}>
+          <Route index element={<Userhome />} />
+          <Route path='trans' element={<Transaction />} />
+          <Route path='firsttrans' element={<Firsttrans />} />
+          <Route path='history' element={<History/>}/>
+          <Route path='profile' element={<Profile/>}/>
         </Route>
-    </Routes>
-    <Routes>
-      <Route path='/admin' element={<AdminHome/>}/>
-      <Route path='usermanage/:id' element={<Usermange/>}/>
-    </Routes>
+        <Route path='/admin' element={<AdminHome />} />
+        <Route path='/admin/usermanage/:id' element={<Usermange />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
