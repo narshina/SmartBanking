@@ -21,9 +21,10 @@ export const Login = () => {
             navigate('/admin')
            }
            if(response.data.usertype=='user'){
+            if(response.data.status=='enable'){
             navigate('/user')
            }
-            
+        }
         }
 
 

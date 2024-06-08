@@ -4,7 +4,7 @@ import './Style.css'
 export const Userhome = () => {
   return (
     <div className='first'>
-      <div className='m-auto text-center font-serif text-[38px]  pt-56'>SMART BANKING</div>
+      <div className='text-center font-serif text-[40px]  pt-56 animate-fadeIn'>Banking at your fingertips, anywhere, anytime</div>
     </div>
   )
 }

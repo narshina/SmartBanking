@@ -7,12 +7,11 @@
 
 }
 .first{
-    background-image: url('img3.jpg');
+    background-image: url('jk.jpg');
     height: 50rem;
     background-repeat: no-repeat;
     background-size: 100%;
     align-items: center;
-    height: 670px;
   
 
 }
@@ -51,5 +50,19 @@
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 2s ease-out;
   }
   
