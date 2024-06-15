@@ -15,13 +15,14 @@ export const Login = () => {
         let response=await axios.post('http://localhost:4000/user/login',data)
         console.log(response);
         if(response.data){
-            localStorage.setItem('id',response.data._id)
-            localStorage.setItem('email',response.data.email)
-           if(response.data.usertype=='admin'){
+            localStorage.setItem('id',response.data.response._id)
+            localStorage.setItem('token',response.data.token)
+            
+           if(response.data.response.usertype=='admin'){
             navigate('/admin')
            }
-           if(response.data.usertype=='user'){
-            if(response.data.status=='enable'){
+           if(response.data.response.usertype=='user'){
+         {
             navigate('/user')
            }
         }

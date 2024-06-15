@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Style.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const Register = () => {
   const [data, setData] = useState(''); 
+
 
   const handleChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });

@@ -8,7 +8,6 @@ export const Adminnav = () => {
         <div>ONLINE BANKING</div>
         <div className='flex flex-wrap gap-6'>
       <Link to='/' > <div>HOME</div></Link>
-     <div>USER</div> 
         </div>
        
     </div>

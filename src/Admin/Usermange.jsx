@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const Usermange = () => {
  
@@ -38,7 +38,8 @@ export const Usermange = () => {
 
   return (
     <div className='bg'>
-        <div className='flex justify-center pt-4'>
+         <Link to='/admin'>  <div className='font-bold pt-7 hover:underline'>HOME</div></Link> 
+            <div className='flex justify-center pt-4'>
         <div className='h-[180px] w-[450px]  border border-gray-200 rounded-lg bg-white mt-9'>
           <div className='text-center font-bold text-[20px]'>MANAGE USER</div>
 

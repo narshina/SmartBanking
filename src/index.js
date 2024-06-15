@@ -15,6 +15,7 @@ import { Usermange } from './Admin/Usermange';
 import { Firsttrans } from './user/Firsttrans';
 import { History } from './user/History';
 import { Profile } from './user/Profile';
+import { Addcourse } from './Addcourse';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +35,8 @@ root.render(
         <Route path='/admin' element={<AdminHome />} />
         <Route path='/admin/usermanage/:id' element={<Usermange />} />
       </Routes>
+    <Routes><Route path='addcourse' element={<Addcourse/>}/>
+    </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
